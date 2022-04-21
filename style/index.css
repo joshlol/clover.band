@@ -18,14 +18,15 @@ html, body {
   margin: 0;
   background: black;
   color: var(--dark-text);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto Mono', monospace;
   position: relative;
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 600
 }
 h1 {
   font-size: 2em;
