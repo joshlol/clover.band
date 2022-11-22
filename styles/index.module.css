@@ -1,9 +1,7 @@
 .info {
     z-index: 9;
     text-align: center;
-    vertical-align: middle;
     margin: 0;
-    justify-content: center;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -11,12 +9,21 @@
 }
 
 .info > .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
     margin: 0;
     background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .info, .title {
+      align-items: center;
+      align-content: center;
+      flex-direction: row;
+    }
+
+    .info > .title {
+        display: flex;
+    }
 }
 
 .title > h1, .title > h2 {

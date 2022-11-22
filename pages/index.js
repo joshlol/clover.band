@@ -11,9 +11,9 @@ export default function Home() {
       </Head>
 
       <info className={styles.info}> 
-        <h1 className={styles.title}><i>🍀 clover 🍀</i></h1>
+        <h1 className={styles.title}>🍀 <i>clover</i> 🍀</h1>
         <p className={styles.description}>coming soon</p>
-        <p className={styles.description}>ig: <a target='_blank' rel='noreferrer' href='https://www.instagram.com/cloverband_/'>@cloverband_</a></p>
+        <p className={styles.description}>ig: <a className={styles.italic} target='_blank' rel='noreferrer' href='https://www.instagram.com/cloverband_/'>@cloverband_</a></p>
       </info>
 
       <background className={styles.background}> 
