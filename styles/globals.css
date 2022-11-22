@@ -39,6 +39,6 @@ p {
   color: var(--light-text);
 }
 
-i {
-    margin-top: 0.3em;
+a, a:visited, a:link, a:hover, a:active {
+    color: var(--dark-text);color: var(--light-text);
 }

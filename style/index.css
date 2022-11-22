@@ -88,10 +88,6 @@ div.name > h1, div.name > h2 {
     margin: 0;
 }
 
-a, a:visited, a:link, a:hover, a:active {
-    color: var(--dark-text);color: var(--light-text);
-}
-
 div.src {
   position: absolute;
   top: 8px;
