@@ -1,8 +1,49 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/index.module.css'
+import React, { useEffect, useState } from 'react';
+
+const calculateTimeLeft = () => {
+  let year = new Date().getFullYear();
+  const difference = +new Date('Friday, April 21, 2023 18:30:00 GMT-07:00')- +new Date();
+  let timeLeft = {};
+
+  if (difference > 0) {
+    timeLeft = {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  }
+
+  return timeLeft;
+};
+
 
 export default function Home() {
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+  });
+
+  const timerComponents = [];
+
+  Object.keys(timeLeft).forEach((interval) => {
+    if (!timeLeft[interval]) {
+      return;
+    }
+
+    timerComponents.push(
+      <span>
+        {timeLeft[interval]} {interval}{" "}
+      </span>
+    );
+  });
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,8 +53,8 @@ export default function Home() {
 
       <info className={styles.info}> 
         <h1 className={styles.title}>🍀 <i>clover</i> 🍀</h1>
-        <p className={styles.description}>coming soon</p>
-        <p className={styles.description}>ig: <a className={styles.italic} target='_blank' rel='noreferrer' href='https://www.instagram.com/cloverband_/'>@cloverband_</a></p>
+        <p className={styles.description}>{timerComponents.length ? timerComponents : 'NOW.'}</p>
+        <p className={styles.description}><a className={styles.italic} target='_blank' rel='noreferrer' href='https://www.instagram.com/cloverband_/'>@cloverband_</a></p>
       </info>
 
       <background className={styles.background}> 
