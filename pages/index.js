@@ -3,7 +3,6 @@ import styles from '../styles/index.module.css'
 import React, { useEffect, useState } from 'react';
 
 const calculateTimeLeft = () => {
-  let year = new Date().getFullYear();
   const difference = +new Date('Friday, April 21, 2023 18:30:00 GMT-07:00')- +new Date();
   let timeLeft = {};
 
@@ -18,7 +17,6 @@ const calculateTimeLeft = () => {
 
   return timeLeft;
 };
-
 
 export default function Home() {
 
