@@ -42,14 +42,6 @@ export default function Home() {
     );
   }); 
 
-  if (timerComponents.length === 0) { 
-    timerComponents.push(
-      <span key={timeLeft.toString}>
-        stop checking here lol
-      </span>
-    );
-  }
-
   return (
     <div className={styles.container}>
       <Head>
@@ -58,13 +50,14 @@ export default function Home() {
       </Head>
 
       <info className={styles.info}> 
-        <h1 className={styles.title}><span className={styles.titleText} style={{ 'background-color': 'black' }}>🍀 <i>clover</i> 🍀</span></h1>
+        <h1 className={styles.title}><span className={styles.titleText} style={{ 'backgroundColor': 'black' }}>🍀 <i>clover</i> 🍀</span></h1>
         <p className={styles.description}>{timerComponents.length ? timerComponents : ''}</p>
         <p className={styles.description}><a className={styles.italic} target='_blank' rel='noreferrer' href='https://www.instagram.com/cloverband_/'>@cloverband_</a></p>
       </info>
 
       <background className={styles.background}> 
         <video className={styles.video} loop muted playsInline autoPlay> 
+          <source src="/2pKXeK.webm" type="video/webm"/>
           <source src="/2pKXeK.mp4" type="video/mp4"/>
         </video>
       </background>
