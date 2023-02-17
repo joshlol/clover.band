@@ -20,7 +20,7 @@ const calculateTimeLeft = () => {
 
 export default function Home() {
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,11 +36,19 @@ export default function Home() {
     }
 
     timerComponents.push(
-      <span>
+      <span key={timeLeft.toString}>
         {timeLeft[interval]} {interval}{" "}
       </span>
     );
-  });
+  }); 
+
+  if (timerComponents.length === 0) { 
+    timerComponents.push(
+      <span key={timeLeft.toString}>
+        stop checking here lol
+      </span>
+    );
+  }
 
   return (
     <div className={styles.container}>
@@ -50,8 +58,8 @@ export default function Home() {
       </Head>
 
       <info className={styles.info}> 
-        <h1 className={styles.title}>🍀 <i>clover</i> 🍀</h1>
-        <p className={styles.description}>{timerComponents.length ? timerComponents : 'NOW.'}</p>
+        <h1 className={styles.title}><span className={styles.titleText} style={{ 'background-color': 'black' }}>🍀 <i>clover</i> 🍀</span></h1>
+        <p className={styles.description}>{timerComponents.length ? timerComponents : ''}</p>
         <p className={styles.description}><a className={styles.italic} target='_blank' rel='noreferrer' href='https://www.instagram.com/cloverband_/'>@cloverband_</a></p>
       </info>
 
